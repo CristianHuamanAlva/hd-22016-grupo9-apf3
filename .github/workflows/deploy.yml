@@ -26,8 +26,8 @@ jobs:
 
       - name: Preparar carpeta de despliegue
         run: |
-          mkdir deploy
-          cp -r html/* deploy/
+          mkdir -p deploy
+          cp -r html deploy/
           cp -r css deploy/
           cp -r js deploy/
           cp -r img deploy/
@@ -36,5 +36,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./deploy
+          publish_dir: ./deploy/html
 
