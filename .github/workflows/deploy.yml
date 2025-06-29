@@ -24,6 +24,14 @@ jobs:
       - name: Clonar repositorio
         uses: actions/checkout@v3
 
+      - name: Preparar carpeta de despliegue
+        run: |
+          mkdir deploy
+          cp -r html/* deploy/
+          cp -r css deploy/
+          cp -r js deploy/
+          cp -r img deploy/
+
       - name: Desplegar con GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
