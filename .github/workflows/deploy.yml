@@ -30,7 +30,7 @@ jobs:
         run: find . -name "*.js"
 
       - name: 8. Contar líneas de código
-        run: find . -name ".html" -o -name ".css" -o -name "*.js" | xargs wc -l
+        run: find . -name "*.html" -o -name "*.css" -o -name "*.js" | xargs wc -l
 
       - name: 9. Confirmar que build fue exitoso
         run: echo "✅ Build completado correctamente."
@@ -48,12 +48,11 @@ jobs:
       - name: 3. Comprobar existencia de html/index.html
         run: test -f html/index.html && echo "index.html encontrado en carpeta html" || exit 1
 
-
       - name: 4. Comprobar existencia de carpeta css/
-        run: test -d css && echo "Carpeta css encontrada" || echo "⚠ No se encontró carpeta css"
+        run: test -d css && echo "Carpeta css encontrada" || echo "⚠️ No se encontró carpeta css"
 
       - name: 5. Comprobar existencia de carpeta js/
-        run: test -d js && echo "Carpeta js encontrada" || echo "⚠ No se encontró carpeta js"
+        run: test -d js && echo "Carpeta js encontrada" || echo "⚠️ No se encontró carpeta js"
 
       - name: 6. Mostrar archivos que serán publicados
         run: find . -type f
@@ -68,4 +67,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./
